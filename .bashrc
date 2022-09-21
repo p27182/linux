@@ -10,9 +10,10 @@
  alias rm='rm -i'
  alias cp='cp -i'
  alias mv='mv -i'
+ alias sudo='sudo '
 
 #because systemctl is annoying
-alias systemctl='sys'
+alias sys='systemctl'
 
 # because arguments are dumb
 alias watch='watch -n 1'
