@@ -63,4 +63,5 @@ alias watch='watch -n 1'
 #prompty boi
 autoload -U colors && colors
 
-PROMPT='%(?.%F{green}√.%F{red}?%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{33m}%m%F{yellow}📁%F{grey}%~]%F{reset}%F{yellow}⚡'
+PROMPT='%(?.%F{green}√.%F{red}?%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{yellow}📁%F{grey}%~]%F{reset}%F{yellow}⚡ '
+
