@@ -4,14 +4,18 @@
 #promptinit
 #prompt adam1
 
-setopt histignorealldups sharehistory
+setopt histignorealldups
+setopt sharehistory
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
@@ -64,5 +68,4 @@ alias watch='watch -n 1'
 autoload -U colors && colors
 
 PROMPT='%(?.%F{green}√.%F{red}💀%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{grey}]%F{yellow}📁%F{grey}%~%F{reset}%F{yellow}⚡ '
-
-
+#PROMPT='%(?.%F{green}√.%F{red}?%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{yellow}📁%F{grey}%~]%F{reset}%F{yellow}⚡ '
