@@ -22,3 +22,10 @@ git push
 
 git push origin main
 
+# after repo is checked out n you workin on thangs
+
+git add editedfile.txt
+git commit -m 'comment n stuff'
+git push
+
+#check github to see if it be there 🙏
