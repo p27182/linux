@@ -66,23 +66,27 @@ alias sys='systemctl'
 # because arguments are dumb
 alias watch='watch -n 1'
 
-
+#####
 #prompty boi
+####
 autoload -U colors && colors
 
+#prompt info vars
 result='%(?.%F{green}√.%F{red}💀%?)%f%F{grey}'
 tstamp='⌚%F{7}%t%F{grey}'
 user='%F{6}%n%F{grey}'
 host='%F{white}%m%F{grey}'
 dir='%F{yellow}📁%~%F{reset}'
-
+#ips var
 iplist=$(ip -o -4 addr show | awk '$2!="lo" {print$2":"$4}' | tr '\n' ' ')
 ip=${iplist%?}
-lan='%B%F{5}'$ip'%b%F{grey}'
+lan='%F{grey}'$ip'%F{grey}'
 
+#prompt lines
 p1=$'%F{green}┌─['$result'%F{green}]─['$tstamp'%F{green}]─['$lan'%F{green}]'
 p2=$'\n%F{green}└─[%B'$user'%b%F{green}@%B%F{5}'$host'%b%F{green}]─['$dir'%F{green}]➣'
 
+#prompt
 PROMPT=$p1$p2
 
 #PROMPT='%(?.%F{green}√.%F{red}💀%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{grey}]%F{yellow}📁%F{grey}%~%F{reset}%F{yellow}⚡ '
