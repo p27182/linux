@@ -12,6 +12,8 @@ sudo apt update
 
 gh auth login
 
+# got token via github webUI: account settings >> developer settings >> personal access tokens (classic) >> gen new token
+
 git add .zshrc
 
 git status

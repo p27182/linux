@@ -57,6 +57,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=31'
  alias mv='mv -i'
 # alias sudo='sudo '
 
+# history all the thangs
+alias history='history 0'
+
 #because systemctl is annoying
 alias sys='systemctl'
 
@@ -67,5 +70,19 @@ alias watch='watch -n 1'
 #prompty boi
 autoload -U colors && colors
 
-PROMPT='%(?.%F{green}√.%F{red}💀%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{grey}]%F{yellow}📁%F{grey}%~%F{reset}%F{yellow}⚡ '
-#PROMPT='%(?.%F{green}√.%F{red}?%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{yellow}📁%F{grey}%~]%F{reset}%F{yellow}⚡ '
+result='%(?.%F{green}√.%F{red}💀%?)%f%F{grey}'
+tstamp='⌚%F{7}%t%F{grey}'
+user='%F{6}%n%F{grey}'
+host='%F{white}%m%F{grey}'
+dir='%F{yellow}📁%~%F{reset}'
+
+iplist=$(ip -o -4 addr show | awk '$2!="lo" {print$2":"$4}' | tr '\n' ' ')
+ip=${iplist%?}
+lan='%B%F{5}'$ip'%b%F{grey}'
+
+p1=$'%F{green}┌─['$result'%F{green}]─['$tstamp'%F{green}]─['$lan'%F{green}]'
+p2=$'\n%F{green}└─[%B'$user'%b%F{green}@%B%F{5}'$host'%b%F{green}]─['$dir'%F{green}]➣'
+
+PROMPT=$p1$p2
+
+#PROMPT='%(?.%F{green}√.%F{red}💀%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{grey}]%F{yellow}📁%F{grey}%~%F{reset}%F{yellow}⚡ '
