@@ -89,4 +89,3 @@ p2=$'\n%F{green}└─[%B'$user'%b%F{green}@%B%F{5}'$host'%b%F{green}]─['$dir'
 #prompt
 PROMPT=$p1$p2
 
-#PROMPT='%(?.%F{green}√.%F{red}💀%?)%f%B%F{240}~%F{2}%t%F{grey} 💻[%F{6}%n%F{grey}]@%F{grey}[%F{5}%m%F{grey}]%F{yellow}📁%F{grey}%~%F{reset}%F{yellow}⚡ '
