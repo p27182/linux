@@ -10,4 +10,6 @@ figlet -f small $(hostname) | /usr/games/lolcat -f
 uptime | /usr/games/lolcat -f
 
 #need reboot?
-cat /var/run/reboot-required | /usr/games/lolcat -f
+if [ -f /var/run/reboot-required ]; then
+    /usr/games/cowsay $(/var/run/reboot-required) | /usr/games/lolcat -f
+fi
