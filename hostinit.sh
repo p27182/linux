@@ -28,7 +28,8 @@ wget https://raw.githubusercontent.com/p27182/linux/main/00-motd
 #add x bit and move to the spot...
 chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 
-
+#switch shell
+zsh
 
 
 
