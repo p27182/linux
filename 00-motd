@@ -11,5 +11,5 @@ uptime | /usr/games/lolcat -f
 
 #need reboot?
 if [ -f /var/run/reboot-required ]; then
-    /usr/games/cowsay $(/var/run/reboot-required) | /usr/games/lolcat -f
+    /usr/games/cowsay "bruh you gotta reboot, it's required..." | /usr/games/lolcat -f
 fi
