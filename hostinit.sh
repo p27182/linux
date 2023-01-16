@@ -12,7 +12,7 @@ apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat
 wget https://raw.githubusercontent.com/p27182/linux/main/.zshrc
 
 #change shell to zsh
-usermod -s /bin/bash $USER
+usermod -s /usr/bin/zsh $USER
 
 #pull x bit from motd scripts
 chmod -R -x /etc/update-motd.d/*
