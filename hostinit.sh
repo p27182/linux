@@ -20,15 +20,19 @@ sed -i -e 's/motd.dynamic/motd/g' /etc/pam.d/login
 sed -i -e 's/session    optional   pam_motd.so noupdate/#session    optional   pam_motd.so noupdate/g' /etc/pam.d/login
 
 #get motd file
-wget https://raw.githubusercontent.com/p27182/linux/main/00-motd
+echo "downloading motd..."
+wget -q https://raw.githubusercontent.com/p27182/linux/main/00-motd
 
 #add x bit and move to the spot...
 chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 
 #switch user and do some user thangs
-su -l user 
-wget https://raw.githubusercontent.com/p27182/linux/main/.zshrc
+sudo -i -u user bash << EOF
+echo "downloading .zshrc..."
+wget -q https://raw.githubusercontent.com/p27182/linux/main/.zshrc
 zsh
+EOF
+
 
 
 
