@@ -8,10 +8,6 @@ apt update && apt upgrade
 #install zsh
 apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat 
 
-#get .zshrc
-wget https://raw.githubusercontent.com/p27182/linux/main/.zshrc
-chown $USER:$USER .zshrc
-
 #change shell to zsh
 usermod -s /usr/bin/zsh $USER
 
@@ -29,8 +25,10 @@ wget https://raw.githubusercontent.com/p27182/linux/main/00-motd
 #add x bit and move to the spot...
 chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 
-#switch user and jump into zsh shell
-su -l user && zsh
+#switch user and do some user thangs
+su -l user 
+wget https://raw.githubusercontent.com/p27182/linux/main/.zshrc
+zsh
 
 
 
