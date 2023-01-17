@@ -1,29 +1,27 @@
+#!/bin/bash
+cd
 git clone https://github.com/p27182/linux.git
 cd linux
+#get gh repo keys
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \\n&& sudo apt update
 
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-curl
-sudo apt install curl
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \\n&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \\n&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \\n&& sudo apt update
 sudo apt install gh
 sudo apt update
 
-gh auth login
+echo "get token from github webUI: AccountSettings >> DevSettings >> Personal AccessTokens (Classic)"
+echo "check repo and admin:org"
+echo "be ready to paste token..."
 
-# got token via github webUI: account settings >> developer settings >> personal access tokens (classic) >> gen new token
+read -n 1 -r -s -p $'Press enter to continue...\n'
 
-git add .zshrc
-
-git status
-
-git push
-
-git push origin main
-
-# after repo is checked out n you workin on thangs
-
-git add editedfile.txt
-git commit -m 'comment n stuff'
-git push
+#gh auth login
+#git add .zshrc
+#git status
+#git push
+#git push origin main
+#after repo is checked out n you workin on thangs
+#git add editedfile.txt
+#git commit -m 'comment n stuff'
+#git push
 
 #check github to see if it be there 🙏
