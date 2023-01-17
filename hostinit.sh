@@ -10,11 +10,12 @@ apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat
 
 #get .zshrc
 wget https://raw.githubusercontent.com/p27182/linux/main/.zshrc
+chown $USER:$USER .zshrc
 
 #change shell to zsh
 usermod -s /usr/bin/zsh $USER
 
-#pull x bit from motd scripts
+#pull x bit from default motd scripts
 chmod -R -x /etc/update-motd.d/*
 
 #change motd target from motd.dynamic to motd
@@ -28,8 +29,8 @@ wget https://raw.githubusercontent.com/p27182/linux/main/00-motd
 #add x bit and move to the spot...
 chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 
-#switch shell
-zsh
+#switch user and jump into zsh shell
+su -l user && zsh
 
 
 
