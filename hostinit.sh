@@ -6,10 +6,11 @@
 apt update && apt upgrade
 
 #install zsh
-apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat 
+apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat curl
 
 #change shell to zsh
-usermod -s /usr/bin/zsh $USER
+#usermod -s /usr/bin/zsh $USER
+chsh -s $(which zsh) $SUDO_USER
 
 #pull x bit from default motd scripts
 chmod -R -x /etc/update-motd.d/*
@@ -27,7 +28,7 @@ wget -q https://raw.githubusercontent.com/p27182/linux/main/00-motd
 chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 
 #switch user and do some user thangs
-sudo -i -u user bash << EOF
+sudo -i -u $SUDO_USER bash << EOF
 echo "downloading .zshrc..."
 wget -q https://raw.githubusercontent.com/p27182/linux/main/.zshrc
 zsh
