@@ -24,4 +24,8 @@ read -n 1 -r -s -p $'Press enter to continue...\n'
 #git commit -m 'comment n stuff'
 #git push
 
+#tooverwrite local with remote
+#git fetch
+#git reset --hard origin/master
+
 #check github to see if it be there 🙏
