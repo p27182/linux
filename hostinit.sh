@@ -31,9 +31,6 @@ chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 sudo -i -u $SUDO_USER bash << EOF
 echo "downloading .zshrc..."
 wget -q https://raw.githubusercontent.com/p27182/linux/main/.zshrc
-zsh
 EOF
 
-
-
-
+sudo -i -u $SUDO_USER zsh
