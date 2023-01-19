@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #print distor info
-printf "%s (%s %s %s)\n" "$(lsb_release -s -d)" "$(uname -o)" "$(uname -r)" "$(uname -m)"
+echo "$(lsb_release -s -d) $(uname -o) $(uname -r) $(uname -m)" | /usr/games/lolcat
 
 #big hostname
 figlet -f small $(hostname) | /usr/games/lolcat -f
