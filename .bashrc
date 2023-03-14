@@ -136,13 +136,18 @@ function __setprompt
 	# CPU
 	PS1+="(\[${MAGENTA}\]CPU $(cpu)%"
 
-	# Jobs
-	PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]\j"
+	#get IPs
+	iplist=$(ip -o -4 addr show | awk '$2!="lo" {print$2":"$4}' | tr '\n' ' ')
+	ip=${iplist%?}
+	lan='%F{grey}'$ip'%F{grey}'
+
+	# ips
+	PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]$(lan)"
 
 	# Network Connections (for a server - comment out for non-server)
 	PS1+="\[${DARKGRAY}\]:\[${MAGENTA}\]Net $(awk 'END {print NR}' /proc/net/tcp)"
 
-	PS1+="\[${DARKGRAY}\])-"
+	PS1+="\[${DARKGRAY}\])\n"
 
 	# User and server
 	#local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
