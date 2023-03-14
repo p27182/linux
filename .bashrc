@@ -145,14 +145,16 @@ function __setprompt
 	PS1+="\[${DARKGRAY}\])-"
 
 	# User and server
-	local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
-	local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
-	if [ $SSH2_IP ] || [ $SSH_IP ] ; then
-		PS1+="(\[${RED}\]\u@\h"
-	else
-		PS1+="(\[${RED}\]\u"
-	fi
-
+	#local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
+	#local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
+	#if [ $SSH2_IP ] || [ $SSH_IP ] ; then
+	#	PS1+="(\[${RED}\]\u@\h"
+	#else
+	#	PS1+="(\[${RED}\]\u"
+	#fi
+	
+	#added PL (always print hostname)
+	PS1+="(\[${RED}\]\u@\h"
 	# Current directory
 	PS1+="\[${DARKGRAY}\]:\[${BROWN}\]\w\[${DARKGRAY}\])-"
 
