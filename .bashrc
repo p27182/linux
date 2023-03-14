@@ -37,7 +37,7 @@ NC='\[\033[0m\]'
 #color prompt
 #PS1="$grey[$cyan\t$grey][$RED\H$grey][$GREEN\w$grey$grey]$NC# "
 #[user][hostname][directory]#
-PS1="$grey[$cyan\u$grey][$RED\H$grey][$GREEN\w$grey$grey]$NC# "
+#PS1="$grey[$cyan\u$grey][$RED\H$grey][$GREEN\w$grey$grey]$NC# "
 
 #add date n timestamp
 export HISTTIMEFORMAT='%F, %T '
