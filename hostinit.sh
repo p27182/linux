@@ -27,6 +27,11 @@ wget -q https://raw.githubusercontent.com/p27182/linux/main/00-motd
 #add x bit and move to the spot...
 chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 
+#disable ipv6
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
+sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+
 #switch user and do some user thangs
 sudo -i -u $SUDO_USER bash << EOF
 echo "downloading .zshrc..."
