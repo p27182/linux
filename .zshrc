@@ -49,7 +49,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=31'
  export LS_OPTIONS='--color=auto'
  eval "`dircolors`"
  alias ls='ls $LS_OPTIONS'
- alias ll='ls $LS_OPTIONS -la'
+ alias ll='ls $LS_OPTIONS -lah'
 
 # Some more alias to avoid making mistakes:
  alias rm='rm -i'
