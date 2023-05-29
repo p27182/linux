@@ -5,7 +5,7 @@
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -la'
+alias ll='ls $LS_OPTIONS -lah'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
