@@ -6,7 +6,7 @@
 apt update && apt upgrade
 
 #install zsh
-apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat curl
+apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat curl net-tools
 
 #change shell to zsh
 #usermod -s /usr/bin/zsh $USER
