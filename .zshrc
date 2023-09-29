@@ -66,9 +66,6 @@ alias sys='systemctl'
 # because arguments are dumb
 alias watch='watch -n 1'
 
-#lol
-alias wtf='figlet -f small woosahhh | lolcat'
-
 #####
 #prompty boi
 ####
