@@ -2,11 +2,31 @@
 #exec with sudo in ~/
 #dev'd on ubuntu 20.04
 
-#apt updates
-apt update && apt upgrade
+#apt update
+apt update
 
-#install zsh
-apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions figlet lolcat curl net-tools
+#install things
+things="zsh zsh-syntax-highlighting zsh-autosuggestions openssh-server"
+
+read -p "install figlet and lolcat?: " yn
+if [ "$yn" == "y" ];
+then
+  things="$things figlet lolcat"
+fi
+
+read -p "install tree, curl, net-tools, & traceroute?: " yn
+if [ "$yn" == "y" ];
+then
+  things="$things curl net-tools tree traceroute"
+fi
+
+apt install -y $things
+
+read -p "run apt upgrade?: " yn
+if [ "$yn" == "y" ];
+then
+  apt upgrade
+fi
 
 #change shell to zsh
 #usermod -s /usr/bin/zsh $USER
