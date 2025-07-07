@@ -14,3 +14,5 @@ done
 #dont forget to add to /etc/rsyslog.conf:
 # module(load="omprog")
 # action(type="omprog" binary="/path/to/notify.sh")
+
+# NOTE this shit doesnt work on ubuntu24 because apparmor is a pain in the ass
