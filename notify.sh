@@ -1,18 +1,32 @@
 #!/bin/bash
-#place discord webhook in root dir
-URL=`cat discord.wh`
+# echo $(date) ran >> /home/syslog/notify.log
 
-while read line;
-do
+URL=`cat /home/syslog/discord.wh`
+
+while read line; do
 #  if [[ "$line" == *"pam_unix(sshd:session): session opened for user"* ]];
-  if [[ "$line" == *"Accepted password for"* ]];
+  # echo evaluating! >> /home/syslog/notify.log
+  # echo URL="$URL" >> /home/syslog/notify.log
+  if [[ "$line" == *"Accepted password for"* || "$line" == *"Failed password"* ]];
   then
-     curl -H "Content-Type: application/json" -d '{"username": "PVE", "content":"'"🚨 \`${line}\`"'"}' "$URL";
+    curl -H "Content-Type: application/json" -d '{"username": "logbot", "content":"'"🚨 \`${line}\`"'"}' "$URL";
+    # echo curled! >> /home/syslog/notify.log
+  else
+    # echo "exiting..." >> /home/syslog/notify.log
+    exit 0
   fi
 done
 
-#dont forget to add to /etc/rsyslog.conf:
-# module(load="omprog")
-# action(type="omprog" binary="/path/to/notify.sh")
+# echo $(date) done >> /home/syslog/done.log
 
-# NOTE this shit doesnt work on ubuntu24 because apparmor is a pain in the ass
+#dont forget to add to /etc/rsyslog.conf (or in rsyslog.d dir):
+# module(load="omprog")
+# action(type="omprog" binary="/home/syslog/notify.sh")
+
+# NOTE apparmor has to be disabled
+# sudo /etc/default/grub
+#       GRUB_CMDLINE_LINUX="apparmor=0"
+# sudo update-grub
+# sudo reboot
+# sudo mkdir /home/syslog
+# sudo chown -R syslog:syslog /home/syslog
