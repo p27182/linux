@@ -7,7 +7,7 @@ while read line; do
 #  if [[ "$line" == *"pam_unix(sshd:session): session opened for user"* ]];
   # echo evaluating! >> /home/syslog/notify.log
   # echo URL="$URL" >> /home/syslog/notify.log
-  if [[ "$line" == *"Accepted password for"* || "$line" == *"Failed password"* ]];
+  if [[ "$line" == *"Accepted password for"* || "$line" == *"Failed password"* || "$line" == *"login:session"*]];
   then
     curl -H "Content-Type: application/json" -d '{"username": "logbot", "content":"'"🚨 \`${line}\`"'"}' "$URL";
     # echo curled! >> /home/syslog/notify.log
