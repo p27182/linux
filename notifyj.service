@@ -1,0 +1,12 @@
+[Unit]
+Description=notifyj service to relay auth events to discord webhook
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/root/notifyj.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
