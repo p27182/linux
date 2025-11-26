@@ -48,20 +48,25 @@ then
   chmod +x 00-motd && mv 00-motd /etc/update-motd.d/00-motd
 fi
 
-read -p "ddisable IPv6?: " yn
-if [ "$yn" == "y" ];
+read -p "disable IPv6?: " yn
+if [ "$yn" == "y" ]; 
 then
-  #disable ipv6
-  sysctl -w net.ipv6.conf.all.disable_ipv6=1
-  sysctl -w net.ipv6.conf.default.disable_ipv6=1
-  sysctl -w net.ipv6.conf.lo.disable_ipv6=1
-  sysctl -p
+  # create disable ipv6 conf file
+  echo "net.ipv6.conf.all.disable_ipv6=1" > /etc/sysctl.d/99-disable-ipv6.conf
+  echo "net.ipv6.conf.default.disable_ipv6=1" > /etc/sysctl.d/99-disable-ipv6.conf
+  echo "net.ipv6.conf.lo.disable_ipv6=1" > /etc/sysctl.d/99-disable-ipv6.conf
+  if ! sysctl --system >/dev/null 2>&1 ; 
+  then
+    sysctl -p
+  fi
 fi
 
-#switch user and do some user thangs
-sudo -i -u $SUDO_USER bash << EOF
 echo "downloading .zshrc..."
-wget -q https://raw.githubusercontent.com/p27182/linux/main/.zshrc
-EOF
-
-sudo -i -u $SUDO_USER zsh
+if [ -n "$SUDO_USER" ]; then
+    orig_user="${SUDO_USER:-$USER}"
+	sudo -u "$orig_user" wget -q https://raw.githubusercontent.com/p27182/linux/main/.zshrc
+	sudo -i -u $SUDO_USER 
+else
+  wget -q https://raw.githubusercontent.com/p27182/linux/main/.zshrc
+  su $USER
+fi
