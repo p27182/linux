@@ -86,7 +86,7 @@ lan='%F{grey}'$ip'%F{grey}'
 
 #prompt lines
 p1=$'%F{green}┌─['$result'%F{green}]─['$tstamp'%F{green}]─['$lan'%F{green}]'
-p2=$'\n%F{green}└─[%B'$user'%b%F{green}@%B%F{5}'$host'%b%F{green}]─['$dir'%F{green}]➣'
+p2=$'\n%F{green}└─[%B'$user'%b%F{green}@%B%F{5}'$host'%b%F{green}]─['$dir'%F{green}]➣ '
 
 #prompt
 PROMPT=$p1$p2
